@@ -1,7 +1,7 @@
 ﻿
 namespace gubar
 {
-    partial class Form1
+    partial class LoginForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -34,12 +34,13 @@ namespace gubar
             this.text_Login = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.toRegisterButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(98, 125);
+            this.button2.Location = new System.Drawing.Point(98, 127);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(98, 44);
             this.button2.TabIndex = 10;
@@ -51,14 +52,18 @@ namespace gubar
             // 
             this.text_Pass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.text_Pass.Location = new System.Drawing.Point(98, 75);
+            this.text_Pass.MaxLength = 255;
             this.text_Pass.Name = "text_Pass";
+            this.text_Pass.PasswordChar = '•';
             this.text_Pass.Size = new System.Drawing.Size(123, 26);
             this.text_Pass.TabIndex = 9;
+            this.text_Pass.UseSystemPasswordChar = true;
             // 
             // text_Login
             // 
             this.text_Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.text_Login.Location = new System.Drawing.Point(98, 35);
+            this.text_Login.MaxLength = 255;
             this.text_Login.Name = "text_Login";
             this.text_Login.Size = new System.Drawing.Size(123, 26);
             this.text_Login.TabIndex = 8;
@@ -83,17 +88,29 @@ namespace gubar
             this.label1.TabIndex = 6;
             this.label1.Text = "Логин";
             // 
-            // Form1
+            // toRegisterButton
+            // 
+            this.toRegisterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.toRegisterButton.Location = new System.Drawing.Point(222, 127);
+            this.toRegisterButton.Name = "toRegisterButton";
+            this.toRegisterButton.Size = new System.Drawing.Size(98, 44);
+            this.toRegisterButton.TabIndex = 11;
+            this.toRegisterButton.Text = "Войти";
+            this.toRegisterButton.UseVisualStyleBackColor = true;
+            this.toRegisterButton.Click += new System.EventHandler(this.toRegisterButton_Click);
+            // 
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(278, 231);
+            this.ClientSize = new System.Drawing.Size(363, 231);
+            this.Controls.Add(this.toRegisterButton);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.text_Pass);
             this.Controls.Add(this.text_Login);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Авторизация";
             this.ResumeLayout(false);
@@ -108,6 +125,7 @@ namespace gubar
         public System.Windows.Forms.TextBox text_Login;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Button toRegisterButton;
     }
 }
 

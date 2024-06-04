@@ -1,46 +1,39 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace gubar
 {
-    public partial class Form1 : Form
+    public partial class LoginForm : Form
     {
-        private Timer timer; // Задаём таймер через класс таймера 
-        private int attemptsLeft = 3; // Общее количество попыток
+        private Timer timer;
+        private int attemptsLeft = 3;
 
-        public Form1()
+        public LoginForm()
         {
             InitializeComponent();
-            InitializeTimer(); // Инициализация таймера
+            InitializeTimer();
         }
 
         private void InitializeTimer()
         {
             timer = new Timer();
-            timer.Interval = 60000; // 1 минута в миллисекундах
+            timer.Interval = 60000;
             timer.Tick += TimerTick;
             timer.Enabled = false;
         }
 
         private void TimerTick(object sender, EventArgs e)
         {
-            ResetAttempts(); // Восстановление попыток
-            timer.Enabled = false; // Выключение таймера, после восстановления попыток
+            ResetAttempts();
+            timer.Enabled = false;
             MessageBox.Show("Попытки восстановлены. Вы можете попробовать снова.");
             button2.Enabled = true;
         }
 
-        private void ResetAttempts() // Восстановление 3 попыток входа
+        private void ResetAttempts()
         {
             attemptsLeft = 3;
-        }
-
-        private Form previousForm; // Переменная для хранения предыдущей формы
-
-        public void SetPreviousForm(Form form)
-        {
-            previousForm = form;
         }
 
         public void button2Click(object sender, EventArgs e)
@@ -85,9 +78,7 @@ namespace gubar
                                     return;
                             }
 
-                            formx.SetPreviousForm(this); // Устанавливаем текущую форму как предыдущую для новой формы
-                            formx.Show();
-                            this.Hide(); // Скрываем текущую форму
+                            FormManager.ShowForm(formx);
                         }
                         else
                         {
@@ -113,6 +104,13 @@ namespace gubar
                 MessageBox.Show("Превышено максимальное количество попыток. Попробуйте через минуту.");
                 button2.Enabled = false;
             }
+        }
+
+        private void toRegisterButton_Click(object sender, EventArgs e)
+        {
+            RegisterForm form = new RegisterForm();
+            form.Show();
+            this.Hide();
         }
     }
 }

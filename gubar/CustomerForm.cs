@@ -19,18 +19,9 @@ namespace gubar
             InitializeComponent();
         }
 
-        public void SetPreviousForm(Form form)
-        {
-            previousForm = form;
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            if (previousForm != null)
-            {
-                previousForm.Show();
-                this.Close();
-            }
+            this.Close();
         }
     }
 

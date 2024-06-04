@@ -10,7 +10,7 @@ namespace UnitTestProject1
         public void TestMethod1()//верный логин и пароль
         {
             {
-                var loginForm = new Form1();
+                var loginForm = new LoginForm();
                 loginForm.text_Login.Text = "login1";// Тестовое значение для входа
                 loginForm.text_Pass.Text = "pass1";// Тестовое значение для входа
                 loginForm.button2Click(null, null);//"Нажатие" на кнопку
@@ -21,7 +21,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestMethod2() // NEверный логин и пароль
         {
-            var loginForm = new Form1();
+            var loginForm = new LoginForm();
             loginForm.text_Login.Text = "123"; // Тестовое значение для входа
             loginForm.text_Pass.Text = "123"; // Тестовое значение для входа
             loginForm.button2Click(null, null); // "Нажатие" на кнопку

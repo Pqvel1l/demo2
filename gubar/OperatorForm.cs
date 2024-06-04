@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace gubar
@@ -19,18 +12,19 @@ namespace gubar
             InitializeComponent();
         }
 
-        public void SetPreviousForm(Form form)
-        {
-            previousForm = form;
-        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (previousForm != null)
-            {
-                previousForm.Show();
-                this.Close();
-            }
+            this.Close();
         }
+
+        private void OperatorForm_Load(object sender, EventArgs e)
+        {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "demoDataSet.zayavka". При необходимости она может быть перемещена или удалена.
+            this.zayavkaTableAdapter.Fill(this.demoDataSet.zayavka);
+
+        }
+
     }
 }
